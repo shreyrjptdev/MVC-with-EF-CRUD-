@@ -33,13 +33,14 @@
         </tr>
     </table>
 }
-<table>
+<table border="1">
     <tr>
-        <td>Student Id</td>
-        <td>Student Name</td>
-        <td>Student Age</td>
-        <td>Student State</td>
-        <td>Student Gender</td>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Student Age</th>
+        <th>Student State</th>
+        <th>Student Gender</th>
+        <th>Action</th>
     </tr>
     @foreach (var item in ViewBag.data)
     {
@@ -49,6 +50,7 @@
             <td>@item.age</td>
             <td>@item.state</td>
             <td>@item.gender</td>
+            <td>@Html.ActionLink("Delete", "delete", new { a = item.id })</td>
         </tr>
     }
 </table>

@@ -24,5 +24,12 @@ namespace MVC_with_EF__CRUD_.Controllers
             dbo.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult delete(int a = 0)
+        {
+            dbo.tblStudents.Remove(dbo.tblStudents.Find(a));
+            dbo.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
