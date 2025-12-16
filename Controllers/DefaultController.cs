@@ -10,26 +10,50 @@ namespace MVC_with_EF__CRUD_.Controllers
     public class DefaultController : Controller
     {
         db dbo = new db();
-        public ActionResult Index()
+        public ActionResult Index(int a = 0)
         {
-            ViewBag.state = dbo.tblStates.ToList();
-            ViewBag.gender = dbo.tblGenders.ToList();
+            ViewBag.st = dbo.tblStates.ToList();
+            ViewBag.ge = dbo.tblGenders.ToList();
+            ViewBag.btn = "Save";
+            tblStudent obj = new tblStudent();
+            if (a > 0)
+            {
+                var data = (from d in dbo.tblStudents where d.id == a select d).ToList();
+                obj.id = data[0].id;
+                obj.name = data[0].name;
+                obj.age = data[0].age;
+                obj.state = data[0].state;
+                obj.gender = data[0].gender;
+                ViewBag.btn = "Update";
+            }
+            return View(obj);
+        }
+
+        public ActionResult Show(int a = 0)
+        {
             ViewBag.data = dbo.tblStudents.ToList();
             return View();
         }
         [HttpPost]
-        public ActionResult insert(tblStudent obj)
+        public ActionResult insertupdate(tblStudent obj)
         {
-            dbo.tblStudents.Add(obj);
+            if (obj.id > 0)
+            {
+                dbo.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            }
+            else
+            {
+                dbo.tblStudents.Add(obj);
+            }
             dbo.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Show");
         }
 
         public ActionResult delete(int a = 0)
         {
             dbo.tblStudents.Remove(dbo.tblStudents.Find(a));
             dbo.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Show");
         }
     }
 }

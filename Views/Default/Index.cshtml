@@ -4,9 +4,10 @@
 }
 
 <h2>Index</h2>
-@using (Html.BeginForm("insert", "Default", FormMethod.Post))
+@using (Html.BeginForm("insertupdate", "Default", FormMethod.Post))
 {
     <table>
+        @Html.HiddenFor(i => i.id)
         <tr>
             <td>Name:</td>
             <td>@Html.TextBoxFor(n => n.name)</td>
@@ -14,43 +15,22 @@
 
         <tr>
             <td>Age:</td>
-            <td>@Html.TextBoxFor(n => n.age)</td>
+            <td>@Html.TextBoxFor(a => a.age)</td>
         </tr>
 
         <tr>
             <td>State:</td>
-            <td>@Html.DropDownListFor(n => n.state, new SelectList(ViewBag.state, "sid", "sname"), "--select--")</td>
+            <td>@Html.DropDownListFor(s => s.state, new SelectList(ViewBag.st, "sid", "sname"), "--select--")</td>
         </tr>
 
         <tr>
             <td>Gender:</td>
-            <td>@Html.DropDownListFor(n => n.gender, new SelectList(ViewBag.gender, "gid", "gname"), "--select--")</td>
+            <td>@Html.DropDownListFor(g => g.gender, new SelectList(ViewBag.ge, "gid", "gname"), "--select--")</td>
         </tr>
 
         <tr>
             <td></td>
-            <td><input type="submit" value="Save" /></td>
+            <td><input type="submit" value="@ViewBag.btn" /></td>
         </tr>
     </table>
 }
-<table border="1">
-    <tr>
-        <th>Student Id</th>
-        <th>Student Name</th>
-        <th>Student Age</th>
-        <th>Student State</th>
-        <th>Student Gender</th>
-        <th>Action</th>
-    </tr>
-    @foreach (var item in ViewBag.data)
-    {
-        <tr>
-            <td>@item.id</td>
-            <td>@item.name</td>
-            <td>@item.age</td>
-            <td>@item.state</td>
-            <td>@item.gender</td>
-            <td>@Html.ActionLink("Delete", "delete", new { a = item.id })</td>
-        </tr>
-    }
-</table>

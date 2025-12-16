@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<table border="1">
+    <tr>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Student Age</th>
+        <th>Student State</th>
+        <th>Student Gender</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in ViewBag.data)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.age</td>
+            <td>@item.state</td>
+            <td>@item.gender</td>
+            <td>@Html.ActionLink("Delete", "delete", new { a = item.id })</td>
+            <td>@Html.ActionLink("Edit", "Index", new { a = item.id })</td>
+        </tr>
+    }
+</table>
