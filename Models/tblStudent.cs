@@ -13,6 +13,6 @@ namespace MVC_with_EF__CRUD_.Models
         public string name { get; set; }
         public int age { get; set; }
         public int state { get; set; }
-        public int city { get; set; }
+        public int gender { get; set; }
     }
 }

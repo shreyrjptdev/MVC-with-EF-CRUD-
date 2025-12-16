@@ -6,11 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC_with_EF__CRUD_.Models
 {
-    public class tblCity
+    public class tblGender
     {
         [Key]
-        public int cid { get; set; }
-        public int sid { get; set; }
-        public string cname { get; set; }
+        public int gid { get; set; }
+        public string gname { get; set; }
     }
 }

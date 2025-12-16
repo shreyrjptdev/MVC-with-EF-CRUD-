@@ -136,9 +136,17 @@
     <Compile Include="Migrations\202512160628145_mg1.Designer.cs">
       <DependentUpon>202512160628145_mg1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202512160648575_mg2.cs" />
+    <Compile Include="Migrations\202512160648575_mg2.Designer.cs">
+      <DependentUpon>202512160648575_mg2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202512160710514_mg3.cs" />
+    <Compile Include="Migrations\202512160710514_mg3.Designer.cs">
+      <DependentUpon>202512160710514_mg3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\db.cs" />
-    <Compile Include="Models\tblCity.cs" />
+    <Compile Include="Models\tblGender.cs" />
     <Compile Include="Models\tblState.cs" />
     <Compile Include="Models\tblStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +237,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202512160628145_mg1.resx">
       <DependentUpon>202512160628145_mg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512160648575_mg2.resx">
+      <DependentUpon>202512160648575_mg2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512160710514_mg3.resx">
+      <DependentUpon>202512160710514_mg3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

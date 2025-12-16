@@ -1,7 +1,54 @@
-﻿
+﻿@model MVC_with_EF__CRUD_.Models.tblStudent
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm("insert", "Default", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>@Html.TextBoxFor(n => n.name)</td>
+        </tr>
 
+        <tr>
+            <td>Age:</td>
+            <td>@Html.TextBoxFor(n => n.age)</td>
+        </tr>
+
+        <tr>
+            <td>State:</td>
+            <td>@Html.DropDownListFor(n => n.state, new SelectList(ViewBag.state, "sid", "sname"), "--select--")</td>
+        </tr>
+
+        <tr>
+            <td>Gender:</td>
+            <td>@Html.DropDownListFor(n => n.gender, new SelectList(ViewBag.gender, "gid", "gname"), "--select--")</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+}
+<table>
+    <tr>
+        <td>Student Id</td>
+        <td>Student Name</td>
+        <td>Student Age</td>
+        <td>Student State</td>
+        <td>Student Gender</td>
+    </tr>
+    @foreach (var item in ViewBag.data)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.age</td>
+            <td>@item.state</td>
+            <td>@item.gender</td>
+        </tr>
+    }
+</table>
