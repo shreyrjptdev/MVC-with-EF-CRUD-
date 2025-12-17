@@ -144,9 +144,19 @@
     <Compile Include="Migrations\202512160710514_mg3.Designer.cs">
       <DependentUpon>202512160710514_mg3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202512171246434_city.cs" />
+    <Compile Include="Migrations\202512171246434_city.Designer.cs">
+      <DependentUpon>202512171246434_city.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202512171249002_mg4.cs" />
+    <Compile Include="Migrations\202512171249002_mg4.Designer.cs">
+      <DependentUpon>202512171249002_mg4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\db.cs" />
+    <Compile Include="Models\tblCity.cs" />
     <Compile Include="Models\tblGender.cs" />
+    <Compile Include="Models\tblshow.cs" />
     <Compile Include="Models\tblState.cs" />
     <Compile Include="Models\tblStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -244,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202512160710514_mg3.resx">
       <DependentUpon>202512160710514_mg3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512171246434_city.resx">
+      <DependentUpon>202512171246434_city.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512171249002_mg4.resx">
+      <DependentUpon>202512171249002_mg4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

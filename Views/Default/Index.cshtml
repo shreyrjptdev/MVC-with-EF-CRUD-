@@ -20,7 +20,12 @@
 
         <tr>
             <td>State:</td>
-            <td>@Html.DropDownListFor(s => s.state, new SelectList(ViewBag.st, "sid", "sname"), "--select--")</td>
+            <td>@Html.DropDownListFor(s => s.state, new SelectList(ViewBag.st, "sid", "sname"), "--select--", new {onchange="bindcity()"})</td>
+        </tr>
+
+        <tr>
+            <td>City:</td>
+            <td>@Html.DropDownListFor(c => c.city, new SelectList(ViewBag.ct, "cid", "cname"), "--select--")</td>
         </tr>
 
         <tr>
@@ -34,3 +39,24 @@
         </tr>
     </table>
 }
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script type="text/javascript">
+    function bindcity() {
+        var stateid = $("#state").val();
+        $.ajax({
+            url: '../Default/getcity',
+            type: 'post',
+            data: { sid: stateid },
+            success: function (data) {
+                $("#city").empty();
+                $("#city").append($('<option></option').html("--select--").val(0));
+                for (var i = 0; i < data.length; i++) {
+                    $("#city").append($('<option></option').html(data[i].cname).val(data[i].cid));
+                }
+            },
+            Error: function () {
+                alert("Error in city binding");
+            }
+        });
+    }
+</script>

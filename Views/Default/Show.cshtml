@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MVC_with_EF__CRUD_.Models.tblshow>
 @{
     ViewBag.Title = "Show";
 }
@@ -10,16 +10,18 @@
         <th>Student Name</th>
         <th>Student Age</th>
         <th>Student State</th>
+        <th>Student City</th>
         <th>Student Gender</th>
         <th>Action</th>
     </tr>
-    @foreach (var item in ViewBag.data)
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.id</td>
             <td>@item.name</td>
             <td>@item.age</td>
             <td>@item.state</td>
+            <td>@item.city</td>
             <td>@item.gender</td>
             <td>@Html.ActionLink("Delete", "delete", new { a = item.id })</td>
             <td>@Html.ActionLink("Edit", "Index", new { a = item.id })</td>

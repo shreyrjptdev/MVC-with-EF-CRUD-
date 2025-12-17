@@ -13,6 +13,7 @@ namespace MVC_with_EF__CRUD_.Models
         }
         public DbSet<tblStudent> tblStudents { get; set; }
         public DbSet<tblState> tblStates { get; set; }
+        public DbSet<tblCity> tblCities { get; set; }
         public DbSet<tblGender> tblGenders { get; set; }
     }
 }
